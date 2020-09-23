@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-api-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: sample-api-blue
+  ports:
+    - port: 30000
+      targetPort: 8000
