@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: sample-cj
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      completions: 5
+      parallelism: 2
+      template:
+        spec:
+          containers:
+            - name: sample-job
+              image: youodf/sample-job:1.0.0
+              command: ["./sample-job"]
+          restartPolicy: OnFailure
