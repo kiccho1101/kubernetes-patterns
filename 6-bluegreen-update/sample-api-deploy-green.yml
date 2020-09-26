@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-api-deploy-green
+  labels:
+    app: sample-api-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-api-green
+  template:
+    metadata:
+      labels:
+        app: sample-api-green
+    spec:
+      containers:
+        - name: sample-api
+          image: youodf/sample-api:1.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
