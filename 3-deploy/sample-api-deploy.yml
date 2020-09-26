@@ -17,6 +17,5 @@ spec:
       containers:
         - name: sample-api
           image: youodf/sample-api:1.0.0
-          imagePullPolicy: Always
           ports:
             - containerPort: 8000
