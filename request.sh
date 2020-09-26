@@ -1,6 +1,5 @@
 while true
 do
-    curl http://34.85.19.99:30000/
+    curl http://127.0.0.1:51105
     echo ""
-    sleep 1
 done
