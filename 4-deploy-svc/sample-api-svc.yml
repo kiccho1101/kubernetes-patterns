@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: sample-api-svc
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: sample-api-blue
+    app: sample-api
   ports:
     - port: 30000
       targetPort: 8000
