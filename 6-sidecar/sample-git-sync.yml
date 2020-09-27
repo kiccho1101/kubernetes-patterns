@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git-sync
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: git-sync-volume
+          mountPath: /share
+    - name: git-sync
+      image: gcr.io/google_containers/git-sync:v3.1.1
+      volumeMounts:
+        - name: git-sync-volume
+          mountPath: /sync
+      env:
+        - name: GIT_SYNC_REPO
+          value: https://github.com/kiccho1101/kubernetes-patterns.git
+        - name: GIT_SYNC_BRANCH
+          value: master
+        - name: GIT_SYNC_ROOT
+          value: /sync
+        - name: GIT_SYNC_DEST
+          value: kubernetes-patterns
+  volumes:
+    - name: git-sync-volume
+      emptyDir: {}
