@@ -9,8 +9,8 @@ spec:
   schedule: "* * * * *"
   jobTemplate:
     spec:
-      completions: 5
-      parallelism: 2
+      completions: 1
+      parallelism: 1
       template:
         spec:
           containers:

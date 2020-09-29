@@ -16,6 +16,13 @@ spec:
     spec:
       containers:
         - name: sample-api
-          image: youodf/sample-api:1.0.0
+          image: youodf/sample-api:1.0.1
           ports:
             - containerPort: 8000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
