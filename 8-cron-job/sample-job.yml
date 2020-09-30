@@ -3,9 +3,6 @@ kind: CronJob
 metadata:
   name: sample-cj
 spec:
-  concurrencyPolicy: Allow
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
   schedule: "* * * * *"
   jobTemplate:
     spec:
